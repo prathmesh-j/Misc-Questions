@@ -11,9 +11,9 @@ public class LongestPalindromicSubsequence {
 
     public static int getLengthOfLongestPalindromicSubseqence(String str) {
         int[][] dp = new int[str.length()][str.length()];
-        for (int i = str.length() - 1; i >= 0; i--) {
-            dp[i][i] = 1; // ---? mark the diagonals as 1
-            for (int j=i+1;j<str.length();j++) {
+        for (int i = str.length() - 1; i >= 0; i--) { // move from right to left
+            dp[i][i] = 1; // ---> mark the diagonals as 1
+            for (int j=i+1;j<str.length();j++) { // move from left to right
                 if(str.charAt(i) == str.charAt(j)) {
                     dp[i][j] = dp[i+1][j-1] + 2;
                 } else {
